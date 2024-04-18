@@ -1,0 +1,16 @@
+.form-layout {
+  border-radius: 15px;
+  width: 500px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.message-text {
+  color: white;
+}

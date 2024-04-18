@@ -1,0 +1,77 @@
+{% extends 'webapp/base.html' %} {% block content %}
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2 d-flex align-items-center justify-content-center">
+          <div
+            class="circle"
+            style="background-color: {{ record.circle_color }};">
+            <strong>{{ record.last_name|slice:":1" }}</strong>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <h2 class="card-title">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+            {{record.last_name|upper }} {{ record.first_name }}
+          </h2>
+          <hr />
+          <p class="card-text">
+            <strong>ID:</strong> {{ record.id }}<br />
+            <strong>Email:</strong> {{ record.email }}<br />
+            <strong>Phone:</strong> {{ record.phone }}<br />
+            <strong>Address:</strong> {{ record.address }}<br />
+            <strong>City:</strong> {{ record.city }}<br />
+            <strong>Province:</strong> {{ record.province }}<br />
+            <strong>Country:</strong> {{ record.country }}<br />
+            <strong>Creation date:</strong> {{ record.creation_date }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+<a href="{% url 'dashboard' %}" class="btn btn-secondary">
+  Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i
+></a>
+&nbsp;
+<a href="{% url 'update-record' record.id %}" class="btn btn-info">
+  Update record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+</a>
+&nbsp;
+<a href="{% url 'delete-record' record.id %}" class="btn btn-danger">
+  Delete &nbsp; <i class="fa fa-minus" aria-hidden="true"></i>
+</a>
+<style>
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: {{ record.circle_color }};
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+  }
+
+  .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .card-title {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+
+  .card-text {
+    font-size: 1.25rem;
+  }
+</style>
+
+{% endblock %}
